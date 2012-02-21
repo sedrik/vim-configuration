@@ -260,6 +260,11 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+" Move them in similar fashion
+map <C-J> <C-W>J
+map <C-K> <C-W>K
+map <C-H> <C-W>H
+map <C-L> <C-W>L
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -268,8 +273,8 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :1,300 bd!<cr>
 
 " Use the arrows to something usefull
-map <right> :bn<cr>
-map <left> :bp<cr>
+map <right> :tabNext<cr>
+map <left> :tablast<cr>
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
