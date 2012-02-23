@@ -79,7 +79,7 @@ set wildchar=<Tab>
 
 set ruler "Always show current position
 
-set cmdheight=2 "The commandbar height
+set cmdheight=1 "The commandbar height
 
 set hidden "Change buffer - without saving
 
@@ -186,7 +186,7 @@ set softtabstop=4
 set smarttab
 
 set lbr
-set tw=500
+set textwidth=80
 
 set autoindent "Auto indent
 set si "Smart indet
@@ -260,11 +260,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-" Move them in similar fashion
-map <C-J> <C-W>J
-map <C-K> <C-W>K
-map <C-H> <C-W>H
-map <C-L> <C-W>L
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -274,7 +269,7 @@ map <leader>ba :1,300 bd!<cr>
 
 " Use the arrows to something usefull
 map <right> :tabNext<cr>
-map <left> :tablast<cr>
+map <left> :tabprevious<cr>
 
 " Tab configuration
 map <leader>tn :tabnew<cr>
