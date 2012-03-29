@@ -130,7 +130,7 @@ nnoremap  N Nzz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable "Enable syntax hl
+syntax on "Enable syntax hl
 
 if has("gui_running")
   set guioptions-=T
