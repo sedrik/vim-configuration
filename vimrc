@@ -364,17 +364,7 @@ set spelllang=en_US,sv
 map <leader>sn ]s
 map <leader>sp [s
 
-function! ToggleSpell()
-    if !exists("b:spell")
-        setlocal spell
-        let b:spell = 1
-    else
-        setlocal nospell
-        unlet b:spell
-    endif
-endfunction
-
-map <leader>s :call ToggleSpell()<CR>
+map <leader>s :set spell!<CR>
 
 """"""""""""""""""""""""""""""
 " => Python section
