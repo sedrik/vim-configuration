@@ -359,30 +359,22 @@ map <leader>p :cp<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""Pressing ,ss will toggle and untoggle spell checking
-"map <leader>ss :setlocal spell!<cr>
-"
+set spelllang=en_US,sv
 ""Shortcuts using <leader>
-"map <leader>sn ]s
-"map <leader>sp [s
-"map <leader>sa zg
-"map <leader>s? z=
-" ==== Spelling ====
-":setlocal spell spelllang=en
-" Spell check
+map <leader>sn ]s
+map <leader>sp [s
+
 function! ToggleSpell()
     if !exists("b:spell")
-        setlocal spell spelllang=en
+        setlocal spell
         let b:spell = 1
     else
         setlocal nospell
         unlet b:spell
     endif
 endfunction
-"Mapping for spelling
-nmap <F4> :call ToggleSpell()<CR>
-imap <F4> <Esc>:call ToggleSpell()<CR>a
-" ==== Spelling ====
+
+map <leader>s :call ToggleSpell()<CR>
 
 """"""""""""""""""""""""""""""
 " => Python section
