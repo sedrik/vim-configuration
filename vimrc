@@ -382,10 +382,18 @@ endfunction
 "Mapping for spelling
 nmap <F4> :call ToggleSpell()<CR>
 imap <F4> <Esc>:call ToggleSpell()<CR>a
-" ==== Spelling ====
 
 """"""""""""""""""""""""""""""
 " => Python section
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
+
+""""""""""""""""""""""""""""""
+" => NERDTree section
+""""""""""""""""""""""""""""""
+if exists("loaded_nerd_tree")
+    "Python Open NERDTree on start and move to the buffer window
+    autocmd VimEnter * NERDTree
+    autocmd VimEnter * wincmd p
+endif
