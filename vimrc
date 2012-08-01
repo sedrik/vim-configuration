@@ -129,7 +129,6 @@ set report=0
 nnoremap  n nzz
 nnoremap  N Nzz
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,8 +190,6 @@ set smarttab
 set lbr
 set textwidth=80
 
-set autoindent "Auto indent
-set si "Smart indet
 set wrap "Wrap lines
 
 "Indents the whole file
