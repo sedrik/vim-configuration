@@ -19,3 +19,6 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = https://github.com/vim-scripts/Gundo
