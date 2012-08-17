@@ -7,6 +7,9 @@ call pathogen#infect()
 " Enable neocomplcache on startup
 let g:neocomplcache_enable_at_startup = 1
 
+" Change dir based on where nerdtree has it's root
+let g:NERDTreeChDirMode = 2
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => OS Management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
