@@ -378,8 +378,8 @@ au FileType python syn keyword pythonDecorator True None False self
 """"""""""""""""""""""""""""""
 " => NERDTree section
 """"""""""""""""""""""""""""""
-if exists("loaded_nerd_tree")
+"if exists("loaded_nerd_tree")
     "Python Open NERDTree on start and move to the buffer window
     autocmd VimEnter * NERDTree
     autocmd VimEnter * wincmd p
-endif
+"endif
