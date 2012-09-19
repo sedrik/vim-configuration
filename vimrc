@@ -191,7 +191,7 @@ set softtabstop=4
 set smarttab
 
 set lbr
-set textwidth=80
+set textwidth=79
 
 set wrap "Wrap lines
 
