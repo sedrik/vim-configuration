@@ -22,3 +22,9 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/vim-scripts/Gundo
+[submodule "bundle/vimerl"]
+	path = bundle/vimerl
+	url = https://github.com/jimenezrick/vimerl.git
+[submodule "bundle/erlang-tags"]
+	path = bundle/erlang-tags
+	url = https://github.com/vim-erlang/vim-erlang-tags.git
