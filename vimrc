@@ -7,9 +7,6 @@ call pathogen#infect()
 " Enable neocomplcache on startup
 let g:neocomplcache_enable_at_startup = 1
 
-" Change dir based on where nerdtree has it's root
-let g:NERDTreeChDirMode = 2
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => OS Management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -17,7 +14,7 @@ let g:NERDTreeChDirMode = 2
 " TODO read try to read uname to parse mac and linux,
 "   if it fails this is a windows computer.
 fun! MySys()
-  return "mac"
+  return "linux"
 endfun
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -29,6 +26,8 @@ set history=700
 " Enable filetype plugin
 filetype plugin on
 filetype indent on
+
+syntax on "Enable syntax highlight
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -69,7 +68,7 @@ endfunction
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the curors - when moving vertical..
-set so=7
+set so=20
 
 " Tell us what mode we are currently in =)
 set showmode
@@ -77,7 +76,7 @@ set showmode
 " Fold on indentation level
 set fdm=indent
 
-set wildmenu "Turn on WiLd menu
+set wildmenu "Turn on Wild menu
 set wildmode=longest:full,full
 
 "Use tab for autocompletion
@@ -123,7 +122,9 @@ set tm=500
 set display+=uhex
 
 "Highlight trailing backspaces
-au Syntax * syn match Error /\s\+$/ | syn match Error /^\s* \t\s*/
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+au Syntax * syn match ExtraWhitespace /\s\+$/ | syn match ExtraWhitespace /^\s* \t\s*/
 
 "Report number of lines changed always
 set report=0
@@ -135,8 +136,6 @@ nnoremap  N Nzz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax on "Enable syntax hl
-
 if has("gui_running")
   set guioptions-=T
   set t_Co=256
@@ -144,9 +143,9 @@ if has("gui_running")
   colorscheme peaksea
   set nonu
 else
-  colorscheme zellner
+  colorscheme ron
   set background=dark
-  set nonu
+  set nonumber
 endif
 
 set encoding=utf8
@@ -156,10 +155,6 @@ catch
 endtry
 
 set ffs=unix,dos,mac "Default file types
-
-"Dark background
-set background=dark
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -194,9 +189,6 @@ set lbr
 set textwidth=79
 
 set wrap "Wrap lines
-
-"Indents the whole file
-nmap <leader>= :call Preserve("normal gg=G")<CR>
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -274,12 +266,6 @@ map <leader>ba :1,300 bd!<cr>
 map <right> :tabNext<cr>
 map <left> :tabprevious<cr>
 
-" Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit 
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
@@ -338,12 +324,6 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
 if MySys() == "mac"
   nmap <D-j> <M-j>
   nmap <D-k> <M-k>
@@ -378,8 +358,22 @@ au FileType python syn keyword pythonDecorator True None False self
 """"""""""""""""""""""""""""""
 " => NERDTree section
 """"""""""""""""""""""""""""""
-"if exists("loaded_nerd_tree")
-    "Python Open NERDTree on start and move to the buffer window
-    autocmd VimEnter * NERDTree
-    autocmd VimEnter * wincmd p
-"endif
+function! NerdTreeSettings()
+    if exists(":NERDTree")
+        echom "Nerdtree detected"
+        " After opening a file with Nerdtree close the view
+        let g:NERDTreeQuitOnOpen=1
+
+        " Change dir based on where nerdtree has it's root
+        let g:NERDTreeChDirMode = 2
+
+        " NERD Tree
+        nmap <leader>t :NERDTreeFind<RETURN>
+        "On start open the Nerdtree window
+        "autocmd WinEnter * NERDTree | wincmd p
+    else
+        echom "Could not detect NerdTree plugin"
+    endif
+endfunction
+
+autocmd VimEnter * call NerdTreeSettings()
