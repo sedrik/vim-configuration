@@ -28,3 +28,6 @@
 [submodule "bundle/erlang-tags"]
 	path = bundle/erlang-tags
 	url = https://github.com/vim-erlang/vim-erlang-tags.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
