@@ -356,7 +356,7 @@ let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 
 """"""""""""""""""""""""""""""
-" => NERDTree section
+" Plugin settings
 """"""""""""""""""""""""""""""
 function! NerdTreeSettings()
     if exists(":NERDTree")
@@ -376,4 +376,14 @@ function! NerdTreeSettings()
     endif
 endfunction
 
+function! ErlangTagsSettings()
+    if exists(":ErlangTags")
+        echom "ErlangTags detected"
+        let g:erlang_tags_ignore = "apps/**/.eunit"
+    else
+        echom "Could not detect ErlangTags plugin"
+    endif
+endfunction
+
 autocmd VimEnter * call NerdTreeSettings()
+autocmd VimEnter * call ErlangTagsSettings()
