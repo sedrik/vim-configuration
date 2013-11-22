@@ -187,6 +187,7 @@ set smarttab
 
 set lbr
 set textwidth=79
+match ErrorMsg '\%>80v.\+'
 
 set wrap "Wrap lines
 
