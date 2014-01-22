@@ -378,16 +378,11 @@ au FileType python syn keyword pythonDecorator True None False self
 function! NerdTreeSettings()
     if exists(":NERDTree")
         echom "Nerdtree detected"
-        " After opening a file with Nerdtree close the view
-        let g:NERDTreeQuitOnOpen=1
-
         " Change dir based on where nerdtree has it's root
         let g:NERDTreeChDirMode = 2
 
         " NERD Tree
-        nmap <leader>t :NERDTreeFind<RETURN>
-        "On start open the Nerdtree window
-        "autocmd WinEnter * NERDTree | wincmd p
+        nnoremap <leader>t :NERDTreeToggle<CR>
     else
         echom "Could not detect NerdTree plugin"
     endif
