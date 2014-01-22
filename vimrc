@@ -156,6 +156,10 @@ if has("gui_running")
   set nonu
 else
   colorscheme ron
+  " ron works really bad when vimdiff is invoked
+  if &diff
+      colorscheme distinguished
+  endif
   set background=dark
   set nonumber
 endif
