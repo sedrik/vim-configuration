@@ -203,7 +203,7 @@ set smarttab
 
 set lbr
 set textwidth=79
-match ErrorMsg '\%>80v.\+'
+au Syntax * syn match ExtraWhitespace '\%>79v.\+'
 
 set wrap "Wrap lines
 
