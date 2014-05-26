@@ -34,3 +34,12 @@
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "bundle/vim-dispatch"]
+	path = bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule "bundle/vim-dialyzer"]
+	path = bundle/vim-dialyzer
+	url = https://github.com/fishcakez/vim-dialyzer
+[submodule "bundle/vim-sensible"]
+	path = bundle/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
