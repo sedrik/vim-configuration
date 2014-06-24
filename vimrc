@@ -85,8 +85,9 @@ set so=20
 " Tell us what mode we are currently in =)
 set showmode
 
-" Fold on indentation level
-set fdm=indent
+" Fold on indentation level but dont do it automatically
+set foldmethod=indent
+set foldlevel=99
 
 set wildmenu "Turn on Wild menu
 set wildmode=longest:full,full
