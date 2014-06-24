@@ -205,6 +205,7 @@ set smarttab
 set lbr
 set textwidth=79
 au Syntax * syn match ExtraWhitespace '\%>79v.\+'
+au Syntax * let w:m2=matchadd('ErrorMsg', '\%>79v.\+', -1)
 
 set wrap "Wrap lines
 
