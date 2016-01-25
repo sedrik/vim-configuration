@@ -69,6 +69,10 @@ set hidden
 set ignorecase
 set smartcase
 
+" Make tab-completion behave more sane.
+set wildmode=longest,list,full
+set wildmenu
+
 " Highlight search things
 set hlsearch
 " Search as I type
